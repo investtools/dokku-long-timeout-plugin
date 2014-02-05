@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 APP="$1"
-perl -pi -e 's/(proxy_pass.*;)/\1 proxy_read_timeout 600;/g' $DOKKU_ROOT/$APP/nginx.conf
+perl -pi -e 's/(\s*)(proxy_pass.*;)/\1\2\n\1proxy_read_timeout 600;/g' $DOKKU_ROOT/$APP/nginx.conf
